@@ -87,7 +87,6 @@ public class Panel1 extends JPanel implements ActionListener {
         }
         //set bounds of next button under everything
         frame.panel2.next.setBounds(350, ypos, 75, 30);
-        frame.panel2.next.addActionListener(frame.panel2);
-        frame.panel2.add(next);
+        frame.panel2.revalidate();
     }
 }

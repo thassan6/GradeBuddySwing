@@ -25,8 +25,9 @@ public class Panel2 extends JPanel implements ActionListener {
         weight.setBounds(500, 20, 100, 35);
 
         next = new JButton("Next");
-        //next.addActionListener(this);
+        next.addActionListener(this);
 
+        add(next);
         add(type);
         add(quantity);
         add(weight);
@@ -34,7 +35,6 @@ public class Panel2 extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        JOptionPane.showMessageDialog(null, "DEBUG: Click");
-        setVisible(false);
+        JOptionPane.showMessageDialog(null, "DEBUG: Panel2 Next Click");
     }
 }

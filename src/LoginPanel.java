@@ -49,6 +49,7 @@ public class LoginPanel extends JPanel implements ActionListener {
         //set username and password
         if(e.getSource() == login){
             if(user.getText().equals("") && pass.getText().equals("")){
+                //JOptionPane.showMessageDialog(null, "DEBUG login");
                 this.setVisible(false);
                 Login frame = (Login) SwingUtilities.getWindowAncestor(this);
                 frame.panel1.setVisible(true);
