@@ -17,17 +17,13 @@ public class Panel1 extends JPanel implements ActionListener {
         //initalize components
         name = new JTextField("Name");
         name.setBounds(350, 150, 75, 30);
-
         professorName = new JTextField("Professor");
         professorName.setBounds(350, 190, 75, 30);
-
         courseName = new JTextField("Course Name");
         courseName.setBounds(350, 230, 75, 30);
-
         numAssignmentTypes = new JTextField("3");
         numAssignmentTypes.setBounds(350, 270, 75, 30);
-
-        goalGrade = new JTextField("Goal Grade");
+        goalGrade = new JTextField("4.0");
         goalGrade.setBounds(350, 310, 75, 30);
 
         next = new JButton("Next");
@@ -48,6 +44,7 @@ public class Panel1 extends JPanel implements ActionListener {
         // save number of assignments for ease of use.
         int numAss = Integer.parseInt(numAssignmentTypes.getText());
 
+        // save all course info in course object
         course.numAssignmentTypes = numAss;
         course.courseName = courseName.getText();
         course.goalGrade = Double.parseDouble(goalGrade.getText());
@@ -56,8 +53,7 @@ public class Panel1 extends JPanel implements ActionListener {
 
         Login frame = (Login) SwingUtilities.getWindowAncestor(this);
 
-        //code textBoxes for panel2 here
-        //initalize all the arrays in panel2 from numAssignments gotten
+        //initalize all the arrays in panel2 and next button
         frame.panel2.assignmentNames = new JTextField[numAss];
         frame.panel2.assignmentQuantities = new JTextField[numAss];
         frame.panel2.assignmentWeights = new JTextField[numAss];
@@ -89,6 +85,9 @@ public class Panel1 extends JPanel implements ActionListener {
             frame.panel2.setVisible(true);
 
         }
-
+        //set bounds of next button under everything
+        frame.panel2.next.setBounds(350, ypos, 75, 30);
+        frame.panel2.next.addActionListener(frame.panel2);
+        frame.panel2.add(next);
     }
 }

@@ -1,13 +1,14 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Panel2 extends JPanel {
+public class Panel2 extends JPanel implements ActionListener {
 
     Course course;
     JLabel type, quantity, weight;
     JTextField assignmentNames[];
     JTextField assignmentQuantities[];
     JTextField assignmentWeights[];
-
     JButton next;
 
 
@@ -23,7 +24,17 @@ public class Panel2 extends JPanel {
         weight = new JLabel("Weight");
         weight.setBounds(500, 20, 100, 35);
 
+        next = new JButton("Next");
+        //next.addActionListener(this);
 
+        add(type);
+        add(quantity);
+        add(weight);
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JOptionPane.showMessageDialog(null, "DEBUG: Click");
+        setVisible(false);
+    }
 }
