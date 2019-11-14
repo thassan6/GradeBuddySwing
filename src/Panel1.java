@@ -6,10 +6,8 @@ public class Panel1 extends JPanel implements ActionListener {
 
     JTextField name, professorName, courseName, numAssignmentTypes, goalGrade;
     JButton next;
-    Course course;
 
     public Panel1(){
-        course = new Course();
 
         setLayout(null);
         setBounds(0, 0, 600, 800);
@@ -45,21 +43,23 @@ public class Panel1 extends JPanel implements ActionListener {
         int numAss = Integer.parseInt(numAssignmentTypes.getText());
 
         // save all course info in course object
-        // initialize Course weights[] and courseNames[]
-        course.numAssignmentTypes = numAss;
-        course.courseName = courseName.getText();
-        course.goalGrade = Double.parseDouble(goalGrade.getText());
-        course.professor = professorName.getText();
-        course.yourName = name.getText();
-        Course.initializeWeightsArray(numAss);
-        course.initializeCourseNames(numAss);
-
+        // initialize Course arrays
         Login frame = (Login) SwingUtilities.getWindowAncestor(this);
+        Course.numAssignmentTypes = numAss;
+        Course.courseName = courseName.getText();
+        Course.goalGrade = Double.parseDouble(goalGrade.getText());
+        Course.professor = professorName.getText();
+        Course.yourName = name.getText();
+        Course.initializeWeightsArray(numAss);
+        Course.initializeAssignmentTypeNames(numAss);
+        Course.initializeGrades(numAss);
 
-        // initialize all the arrays in panel2 and next button
+
+        // initialize all the arrays in panel2/3 and next button
         frame.panel2.assignmentNames = new JTextField[numAss];
         frame.panel2.assignmentQuantities = new JTextField[numAss];
         frame.panel2.assignmentWeights = new JTextField[numAss];
+        frame.panel3.grades = new JTextField[numAss][];
 
 
         // dynamically create all the TextFields for Panel2
@@ -81,24 +81,21 @@ public class Panel1 extends JPanel implements ActionListener {
             frame.panel2.add(temp2);
             frame.panel2.add(temp3);
 
-            frame.panel2.revalidate();
-            frame.panel2.repaint();
-
             ypos+=50;
-
-            setVisible(false);
-            frame.panel2.setVisible(true);
         }
 
         // set bounds of next button under everything
         frame.panel2.next.setBounds(350, ypos, 75, 30);
         frame.panel2.revalidate();
 
+        setVisible(false);
+        frame.panel2.setVisible(true);
+
         //DEBUG
-        JOptionPane.showMessageDialog(null, "DEBUG: course.numAssignmentTypes\n"+course.numAssignmentTypes);
-        JOptionPane.showMessageDialog(null, "DEBUG: course.courseName\n"+course.courseName);
-        JOptionPane.showMessageDialog(null, "DEBUG: course.goalGrade\n"+course.goalGrade);
-        JOptionPane.showMessageDialog(null, "DEBUG: course.professor\n"+course.professor);
-        JOptionPane.showMessageDialog(null, "DEBUG: course.yourName\n"+course.yourName);
+//        JOptionPane.showMessageDialog(null, "DEBUG: course.numAssignmentTypes\n"+course.numAssignmentTypes);
+//        JOptionPane.showMessageDialog(null, "DEBUG: course.courseName\n"+course.courseName);
+//        JOptionPane.showMessageDialog(null, "DEBUG: course.goalGrade\n"+course.goalGrade);
+//        JOptionPane.showMessageDialog(null, "DEBUG: course.professor\n"+course.professor);
+//        JOptionPane.showMessageDialog(null, "DEBUG: course.yourName\n"+course.yourName);
     }
 }

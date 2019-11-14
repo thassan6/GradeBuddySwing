@@ -4,18 +4,16 @@ import java.awt.event.ActionListener;
 
 public class Panel2 extends JPanel implements ActionListener {
 
-    Course course;
-    JLabel type, quantity, weight;
-    JTextField assignmentNames[];
-    JTextField assignmentQuantities[];
-    JTextField assignmentWeights[];
+    JTextField[] assignmentNames;
+    JTextField[] assignmentQuantities;
+    JTextField[] assignmentWeights;
     JButton next;
 
-
     public Panel2(){
-        course = new Course();
         setLayout(null);
         setBounds(0, 0, 600, 800);
+
+        JLabel type, quantity, weight;
 
         type = new JLabel("Type");
         type.setBounds(50, 20, 100, 35);
@@ -36,24 +34,61 @@ public class Panel2 extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        course.grades = new double[course.numAssignmentTypes][];
+        Login frame = (Login) SwingUtilities.getWindowAncestor(this);
 
-        // iterate through numAssignmentTypes sets courseNames, Weights, Grades array of course object.
-        for(int i = 0; i < course.numAssignmentTypes; i++){
-                course.courseNames[i] = assignmentNames[i].getText();
-                course.weights[i] = Integer.parseInt(assignmentWeights[i].getText());
-                course.grades[i] = new double[Integer.parseInt(assignmentQuantities[i].getText())];
+        // put AssignmentTypeNames, numberOfAssignments, AssignmentTypeWeight in Course Object.
+        // create jaggged array in Course and panel3.
+        for(int i = 0; i < Course.numAssignmentTypes; i++) {
+            String assignmentName = assignmentNames[i].getText();
+            String weight = assignmentWeights[i].getText();
+
+            Course.assignmentTypeNames[i] = assignmentName;
+            Course.weights[i] = Integer.parseInt(weight);
+            //Course.grades[i] = new double[Integer.parseInt(assignmentQuantities[i].getText())];
+            Course.setNumGrades(i, Integer.parseInt(assignmentQuantities[i].getText()));
+            frame.panel3.grades[i] = new JTextField[Integer.parseInt(assignmentQuantities[i].getText())];
         }
 
+        // create labels and TextFields for panel3
+        int ypos = 100;
+        for(int i = 0; i < Course.numAssignmentTypes; i++){
+            JLabel assignmentName = new JLabel(Course.assignmentTypeNames[i]);
+            assignmentName.setBounds(50, ypos, 100, 35);
+
+            int xpos = 100;
+            for(int j = 0; j < Course.grades[i].length; j++){
+                JTextField assignmentTextField = new JTextField();
+                assignmentTextField.setBounds(xpos, ypos, 50, 30);
+                frame.panel3.add(assignmentTextField);
+                frame.panel3.grades[i][j] = assignmentTextField;
+                xpos += 60;
+            }
+
+            frame.panel3.add(assignmentName);
+            ypos+=100;
+        }
+
+        frame.panel3.next.setBounds(350, 450, 75, 30);
+
+        frame.panel3.revalidate();
+        frame.panel3.repaint();
+
+        setVisible(false);
+        frame.panel3.setVisible(true);
 
         // DEBUG
-//        JOptionPane.showMessageDialog(null, "DEBUG: Panel2 Next Click");
-        JOptionPane.showMessageDialog(null, "DEBUG: course.numAssignmentTypes\n"+course.numAssignmentTypes);
-        JOptionPane.showMessageDialog(null, "DEBUG: course.courseName\n"+course.courseName);
-        JOptionPane.showMessageDialog(null, "DEBUG: course.goalGrade\n"+course.goalGrade);
-        JOptionPane.showMessageDialog(null, "DEBUG: course.professor\n"+course.professor);
-        JOptionPane.showMessageDialog(null, "DEBUG: course.yourName\n"+course.yourName);
 
+        // check jagged array
+//        for(int i = 0; i < Course.numAssignmentTypes; i++){
+//            JOptionPane.showMessageDialog(null, "DEBUG: "+Course.grades[i].length);
+//        }
+        // check course object
+//        JOptionPane.showMessageDialog(null, "DEBUG: Panel2 Next Click");
+//        JOptionPane.showMessageDialog(null, "DEBUG: course.numAssignmentTypes\n"+course.numAssignmentTypes);
+//        JOptionPane.showMessageDialog(null, "DEBUG: course.courseName\n"+course.courseName);
+//        JOptionPane.showMessageDialog(null, "DEBUG: course.goalGrade\n"+course.goalGrade);
+//        JOptionPane.showMessageDialog(null, "DEBUG: course.professor\n"+course.professor);
+//        JOptionPane.showMessageDialog(null, "DEBUG: course.yourName\n"+course.yourName);
 
     }
 }
