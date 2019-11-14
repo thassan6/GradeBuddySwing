@@ -24,8 +24,6 @@ public class Login extends JFrame {
         this.add(panel1);
         this.add(panel2);
 
-        // Set login panel to true
-        // set the rest of the panels to false
         loginPanel.setVisible(true);
         panel1.setVisible(false);
         panel2.setVisible(false);
