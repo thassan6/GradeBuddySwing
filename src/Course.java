@@ -6,7 +6,7 @@ public class Course {
 
     static int numAssignmentTypes;
     static double goalGrade;
-
+//testing commit
     static double[][] grades;
     static int[] weights;
     static String[] assignmentTypeNames;
