@@ -41,12 +41,13 @@ public class Panel2 extends JPanel implements ActionListener {
         for(int i = 0; i < Course.numAssignmentTypes; i++) {
             String assignmentName = assignmentNames[i].getText();
             String weight = assignmentWeights[i].getText();
+            int quantity = Integer.parseInt(assignmentQuantities[i].getText());
+
 
             Course.assignmentTypeNames[i] = assignmentName;
             Course.weights[i] = Integer.parseInt(weight);
-            //Course.grades[i] = new double[Integer.parseInt(assignmentQuantities[i].getText())];
-            Course.setNumGrades(i, Integer.parseInt(assignmentQuantities[i].getText()));
-            frame.panel3.grades[i] = new JTextField[Integer.parseInt(assignmentQuantities[i].getText())];
+            Course.setNumGrades(i, quantity);
+            frame.panel3.grades[i] = new JTextField[quantity];
         }
 
         // create labels and TextFields for panel3

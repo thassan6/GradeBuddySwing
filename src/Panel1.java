@@ -86,9 +86,11 @@ public class Panel1 extends JPanel implements ActionListener {
        
         // save number of assignments for ease of use.
         int numAss = Integer.parseInt(numAssignmentTypes.getText());
+        Login frame = (Login) SwingUtilities.getWindowAncestor(this);
+
 
         // save all course info in course object
-        // initialize Course weights[] and courseNames[]
+        // initialize arrays that input from user can.
         Course.numAssignmentTypes = numAss;
         Course.courseName = courseName.getText();
         Course.goalGrade = Double.parseDouble(goalGrade.getText());
@@ -96,15 +98,13 @@ public class Panel1 extends JPanel implements ActionListener {
         Course.yourName = name.getText();
         Course.initializeWeightsArray(numAss);
         Course.initializeCourseNames(numAss);
+        Course.initializeGrades(numAss);
+        frame.panel3.grades = new JTextField[numAss][];
 
-        Login frame = (Login) SwingUtilities.getWindowAncestor(this);
-        
         // initialize all the arrays in panel2 and next button
         frame.panel2.assignmentNames = new JTextField[numAss];
         frame.panel2.assignmentQuantities = new JTextField[numAss];
         frame.panel2.assignmentWeights = new JTextField[numAss];
-        
-        //if (e.getSource() == name) name.selectAll();
 
         // dynamically create all the TextFields for Panel2
         int ypos = 75;
