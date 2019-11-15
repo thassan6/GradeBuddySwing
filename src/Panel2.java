@@ -43,7 +43,6 @@ public class Panel2 extends JPanel implements ActionListener {
             String weight = assignmentWeights[i].getText();
             int quantity = Integer.parseInt(assignmentQuantities[i].getText());
 
-
             Course.assignmentTypeNames[i] = assignmentName;
             Course.weights[i] = Integer.parseInt(weight);
             Course.setNumGrades(i, quantity);
@@ -79,17 +78,20 @@ public class Panel2 extends JPanel implements ActionListener {
 
         // DEBUG
 
-        // check jagged array
-//        for(int i = 0; i < Course.numAssignmentTypes; i++){
-//            JOptionPane.showMessageDialog(null, "DEBUG: "+Course.grades[i].length);
-//        }
-        // check course object
-//        JOptionPane.showMessageDialog(null, "DEBUG: Panel2 Next Click");
-//        JOptionPane.showMessageDialog(null, "DEBUG: course.numAssignmentTypes\n"+Course.numAssignmentTypes);
-//        JOptionPane.showMessageDialog(null, "DEBUG: course.courseName\n"+Course.courseName);
-//        JOptionPane.showMessageDialog(null, "DEBUG: course.goalGrade\n"+Course.goalGrade);
-//        JOptionPane.showMessageDialog(null, "DEBUG: course.professor\n"+Course.professor);
-//        JOptionPane.showMessageDialog(null, "DEBUG: course.yourName\n"+Course.yourName);
+        /*
 
+         //check jagged array
+        for(int i = 0; i < Course.numAssignmentTypes; i++){
+            JOptionPane.showMessageDialog(null, "DEBUG: "+Course.grades[i].length);
+        }
+         //check course object
+        JOptionPane.showMessageDialog(null, "DEBUG: Panel2 Next Click");
+        JOptionPane.showMessageDialog(null, "DEBUG: course.numAssignmentTypes\n"+Course.numAssignmentTypes);
+        JOptionPane.showMessageDialog(null, "DEBUG: course.courseName\n"+Course.courseName);
+        JOptionPane.showMessageDialog(null, "DEBUG: course.goalGrade\n"+Course.goalGrade);
+        JOptionPane.showMessageDialog(null, "DEBUG: course.professor\n"+Course.professor);
+        JOptionPane.showMessageDialog(null, "DEBUG: course.yourName\n"+Course.yourName);
+
+        */
     }
 }
