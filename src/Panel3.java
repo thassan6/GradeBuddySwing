@@ -18,7 +18,15 @@ public class Panel3 extends JPanel implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent actionEvent) {
+    public void actionPerformed(ActionEvent e) {
+    
+        Login frame = (Login) SwingUtilities.getWindowAncestor(this);
+        
+        frame.panel4.revalidate();
+        frame.panel4.repaint();
+        
+        setVisible(false);
+        frame.panel4.setVisible(true);
 
     }
 }
