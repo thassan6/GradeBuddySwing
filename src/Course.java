@@ -37,4 +37,9 @@ public class Course {
     public static void initializeGrades(int numAssignmentTypes){
         grades = new double[numAssignmentTypes][];
     }
+    
+    public static void initializeCourseNames(int numAssignmentTypes){
+        assignmentTypeNames = new String[numAssignmentTypes];
+    }
+    
 }

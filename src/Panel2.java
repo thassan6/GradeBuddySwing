@@ -84,11 +84,11 @@ public class Panel2 extends JPanel implements ActionListener {
 //        }
         // check course object
 //        JOptionPane.showMessageDialog(null, "DEBUG: Panel2 Next Click");
-//        JOptionPane.showMessageDialog(null, "DEBUG: course.numAssignmentTypes\n"+course.numAssignmentTypes);
-//        JOptionPane.showMessageDialog(null, "DEBUG: course.courseName\n"+course.courseName);
-//        JOptionPane.showMessageDialog(null, "DEBUG: course.goalGrade\n"+course.goalGrade);
-//        JOptionPane.showMessageDialog(null, "DEBUG: course.professor\n"+course.professor);
-//        JOptionPane.showMessageDialog(null, "DEBUG: course.yourName\n"+course.yourName);
+//        JOptionPane.showMessageDialog(null, "DEBUG: course.numAssignmentTypes\n"+Course.numAssignmentTypes);
+//        JOptionPane.showMessageDialog(null, "DEBUG: course.courseName\n"+Course.courseName);
+//        JOptionPane.showMessageDialog(null, "DEBUG: course.goalGrade\n"+Course.goalGrade);
+//        JOptionPane.showMessageDialog(null, "DEBUG: course.professor\n"+Course.professor);
+//        JOptionPane.showMessageDialog(null, "DEBUG: course.yourName\n"+Course.yourName);
 
     }
 }

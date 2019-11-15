@@ -7,10 +7,10 @@ public class Panel1 extends JPanel implements ActionListener {
 
     JTextField name, professorName, courseName, numAssignmentTypes, goalGrade;
     JButton next;
-    Course course;
+    //Course course;
 
     public Panel1(){
-        course = new Course();
+       // course = new Course();
 
         setLayout(null);
         setBounds(0, 0, 600, 800);
@@ -89,13 +89,13 @@ public class Panel1 extends JPanel implements ActionListener {
 
         // save all course info in course object
         // initialize Course weights[] and courseNames[]
-        course.numAssignmentTypes = numAss;
-        course.courseName = courseName.getText();
-        course.goalGrade = Double.parseDouble(goalGrade.getText());
-        course.professor = professorName.getText();
-        course.yourName = name.getText();
+        Course.numAssignmentTypes = numAss;
+        Course.courseName = courseName.getText();
+        Course.goalGrade = Double.parseDouble(goalGrade.getText());
+        Course.professor = professorName.getText();
+        Course.yourName = name.getText();
         Course.initializeWeightsArray(numAss);
-        course.initializeCourseNames(numAss);
+        Course.initializeCourseNames(numAss);
 
         Login frame = (Login) SwingUtilities.getWindowAncestor(this);
         
@@ -139,10 +139,10 @@ public class Panel1 extends JPanel implements ActionListener {
         frame.panel2.revalidate();
 
         //DEBUG
-        JOptionPane.showMessageDialog(null, "DEBUG: course.numAssignmentTypes\n"+course.numAssignmentTypes);
-        JOptionPane.showMessageDialog(null, "DEBUG: course.courseName\n"+course.courseName);
-        JOptionPane.showMessageDialog(null, "DEBUG: course.goalGrade\n"+course.goalGrade);
-        JOptionPane.showMessageDialog(null, "DEBUG: course.professor\n"+course.professor);
-        JOptionPane.showMessageDialog(null, "DEBUG: course.yourName\n"+course.yourName);
+        JOptionPane.showMessageDialog(null, "DEBUG: course.numAssignmentTypes\n"+Course.numAssignmentTypes);
+        JOptionPane.showMessageDialog(null, "DEBUG: course.courseName\n"+Course.courseName);
+        JOptionPane.showMessageDialog(null, "DEBUG: course.goalGrade\n"+Course.goalGrade);
+        JOptionPane.showMessageDialog(null, "DEBUG: course.professor\n"+Course.professor);
+        JOptionPane.showMessageDialog(null, "DEBUG: course.yourName\n"+Course.yourName);
     }
 }
